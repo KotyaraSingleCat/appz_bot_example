@@ -6,7 +6,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 public final class HelloWorldBot extends Bot {
     public static void main(String[] args){
-        //dadadad
+        //9999
         if(args == null || args.length != 2){
             System.out.println("You must run bot with 2 args - BotToken and bot UserName");
         } else {
