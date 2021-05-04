@@ -1,23 +1,14 @@
 pipeline {
-  environment {dockerImage = ''}
-  agent any
-
-  stages {
-    stage('Prepare') {
-      steps {
-        sh 'docker stop $(docker ps -q --filter "ancestor=lab11bot")'
-        sh 'docker rm -f $(docker ps -q --filter "ancestor=lab11bot" --filter "status=exited")'
-      }
+    agent any
+    tools { 
+        maven 'maven'
     }
-    stage('Build') {
+      stages {
+        stage('log version info') {
       steps {
-        sh 'DOCKER_BUILDKIT=0'
-        sh 'docker build -f ./Dockerfile .'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        sh 'docker run -d lab11bot'
+        sh 'mvn clean install'
+        sh 'cd hello_bot'
+        sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot -Dexec.args=""1705172028:AAFowiU_cY6xpZqX1Ole3vUrIhU5dINYSaw" "Kotyara""' 
       }
     }
   }
