@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'cd appz_bot_example'
                 sh 'mvn clean install'
                 sh 'cd hello_bot'
                 sh 'mvn -X exec:java -Dexec.mainClass="kpi.acts.appz.bot.hellobot.HelloWorldBot.java" -Dexec.args="1705172028:AAFowiU_cY6xpZqX1Ole3vUrIhU5dINYSaw Kotyara"'
