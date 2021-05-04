@@ -8,6 +8,7 @@ pipeline {
       steps {
         sh 'mvn --version'
         sh 'mvn clean install'
+        sh "mvn -X exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot"
       }
     }
   }
