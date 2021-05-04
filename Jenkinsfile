@@ -1,14 +1,23 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.8.1'
-    }
-  }
+  enviroment {dockerImage = ''}
+  agent any
+  
   stages {
+    stage('Prepare') {
+      steps {
+        sh 'docker stop $(docker ps -q --filter "ancestor=lab11bot")'
+        sh 'docker rm -f $(docker ps -q --filter "ancestor=lab11bot" --filter "status=exited")'
+      }
+    }
     stage('Build') {
       steps {
-        sh 'mvn clean package'
-        sh 'mvn -X exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
+        sh 'DOCKER_BUILDKIT=0'
+        sh 'docker build -f ./Dockerfile .'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'docker run -d lab11bot'
       }
     }
   }
