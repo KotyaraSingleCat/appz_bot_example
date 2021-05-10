@@ -17,13 +17,6 @@
     <properties>
         <telegram.version>4.1</telegram.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
@@ -34,6 +27,15 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <includePluginDependencies>true</includePluginDependencies>
+                    <mainClass>kpi.acts.appz.bot.hellobot.HelloWorldBot</mainClass>
                 </configuration>
             </plugin>
         </plugins>
