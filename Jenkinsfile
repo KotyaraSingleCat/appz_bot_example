@@ -5,16 +5,15 @@ pipeline {
         }
     }
     stages {
-        stage('git') {
-            steps {
-                git url: "https://github.com/KotyaraSingleCat/appz_bot_example.git"
-            }
-        }
         stage('Build') { 
             steps {
-                sh 'mvn clean install'
-                sh 'mvn compile'
-                sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
+                sh 'DOCKER_BUILDKIT=0'
+                sh 'docker build -f ./Dockerfile'
+            }
+        }
+         stage('Deploy') { 
+             steps {
+                sh 'docker run -d lab11bot'
             }
         }
     }
