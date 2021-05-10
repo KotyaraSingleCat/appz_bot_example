@@ -13,6 +13,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'mvn clean install'
+                sh 'mvn compile'
                 sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
