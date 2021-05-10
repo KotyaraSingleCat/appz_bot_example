@@ -14,7 +14,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'mvn clean install'
-                sh 'mvn -e exec:java -Dexec.mainClass=hello_bot.src.main.java.kpi.acts.appz.bot.hellobot.HelloWorldBot'
+                sh 'mvn -e exec:java -Dexec.mainClass=appz_bot_example.hello_bot.src.main.java.kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
     }
