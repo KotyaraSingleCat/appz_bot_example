@@ -6,9 +6,8 @@ pipeline {
     }
     environment {
         JAVA_HOME="$JAVA_HOME:/usr/lib/jvm/java-11-openjdk-i386/bin/java"
-        PATH="/usr/lib/jvm/java-11-openjdk-i386/bin:$PATH"
+        PATH="/usr/lib/jvm/java-11-openjdk-i386/bin:$PATH /opt/maven-3.8.1/bin:$PATH"
         M2_HOME="/opt/maven-3.8.1"
-        PATH="/opt/maven-3.8.1/bin:$PATH"
     }
     stages {
         stage('git') {
