@@ -5,8 +5,8 @@ pipeline {
         }
     }
     environment {
-        JAVA_HOME="$JAVA_HOME:/usr/lib/jvm/java-11-openjdk/bin/java"
-        PATH="/usr/lib/jvm/java-11-openjdk/bin:$PATH /opt/maven-3.8.1/bin:$PATH"
+        JAVA_HOME="$JAVA_HOME:/usr/lib/jvm/java-11/bin/java"
+        PATH="/usr/lib/jvm/java-11/bin:$PATH /opt/maven-3.8.1/bin:$PATH"
         M2_HOME="/opt/maven-3.8.1"
     }
     stages {
