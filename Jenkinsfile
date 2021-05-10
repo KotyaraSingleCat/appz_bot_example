@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.8.1-adoptopenjdk-11'
+            image 'maven:3.8.1-jdk-11'
         }
     }
     stages {
@@ -12,7 +12,11 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                sh 'mvn clean package'
+                sh 'export JAVA_HOME=$JAVA_HOME:/usr/lib/jvm/java-11-openjdk-i386/bin/java export PATH=/usr/lib/jvm/java-11-openjdk-i386/bin:$PATH'
+                sh 'echo $JAVA_HOME'
+                sh 'export M2_HOME=/usr/local/apache-maven/apache-maven-3.8.1 export M2=$M2_HOME/bin export MAVEN_OPTS=-Xms256m -Xmx512m export PATH=$M2:$PATH'
+                sh 'echo $M2_HOME'
+                sh 'mvn clean install'
                 sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
