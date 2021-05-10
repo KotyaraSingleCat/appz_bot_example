@@ -14,6 +14,7 @@ pipeline {
             steps {
                 sh 'mvn clean install'
                 sh 'mvn -e compile exec:java'
+                sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
     }
