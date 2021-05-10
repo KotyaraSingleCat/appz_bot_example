@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'ubuntu:alpine'
+            image 'alpine:3.7'
             args '-v /root/.m2:/root/.m2'
         }
     }
