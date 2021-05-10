@@ -13,7 +13,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'mvn clean install'
-                sh 'java -jar /var/jenkins_home/workspace/JobOne/hello_bot/target/kpi.acts.hello_bot-2019.1.jar'
+                sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
     }
