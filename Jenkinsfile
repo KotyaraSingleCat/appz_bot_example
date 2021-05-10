@@ -5,6 +5,11 @@ pipeline {
         }
     }
     stages {
+        stage('git') {
+            steps {
+                git url: "https://github.com/KotyaraSingleCat/appz_bot_example.git"
+            }
+        }
         stage('Build') { 
             steps {
                 sh 'DOCKER_BUILDKIT=0'
