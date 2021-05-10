@@ -13,7 +13,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'DOCKER_BUILDKIT=0'
-                sh 'docker build -f ./Dockerfile'
+                sh 'docker build /var/jenkins_home/workspace/JobOne/appz_bot_example/Dockerfile'
             }
         }
          stage('Deploy') { 
