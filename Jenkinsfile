@@ -1,22 +1,20 @@
 pipeline {
     agent {
         docker {
-            image 'ubuntu:18.04'
+            image 'maven:3.8.1-adoptopenjdk-11'
             args '-v /root/.m2:/root/.m2'
         }
     }
     stages {
-        stage('Build') {
+        stage('git') {
             steps {
-                sh 'apt-get install git'
-                sh 'apt-get -y install maven'
-                sh 'git clone https://github.com/KotyaraSingleCat/appz_bot_example.git'
-                sh 'cd appz_bot_example'
+                git credentialsId: 'git_credentials', url: "https://github.com/KotyaraSingleCat/appz_bot_example.git"
+            }
+        }
+        stage('Build') { 
+            steps {
                 sh 'mvn clean install'
-                sh 'cd hello_bot'
-                sh 'mvn -X exec:java -Dexec.mainClass="kpi.acts.appz.bot.hellobot.HelloWorldBot"'
             }
         }
     }
 }
-
