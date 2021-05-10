@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'sudo apt install git'
                 sh 'git clone https://github.com/KotyaraSingleCat/appz_bot_example.git'
                 sh 'cd appz_bot_example'
                 sh 'mvn clean install'
