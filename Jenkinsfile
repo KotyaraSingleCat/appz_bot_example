@@ -13,10 +13,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'mvn clean install'
-                sh 'cd /var/jenkins_home/workspace/JobOne/'
-                sh 'git clone'
-                sh 'mvn -e compile exec:java'
-                sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
+                sh 'javac kpi.acts.appz.bot.hellobot.HelloWorldBot.java'
             }
         }
     }
