@@ -1,14 +1,15 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3-alpine'
+            image 'ubuntu:alpine'
             args '-v /root/.m2:/root/.m2'
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'docker pull git'
+                sh 'sudo apt install git'
+                sh 'sudo apt-get -y install maven'
                 sh 'git clone https://github.com/KotyaraSingleCat/appz_bot_example.git'
                 sh 'cd appz_bot_example'
                 sh 'mvn clean install'
