@@ -16,7 +16,7 @@ pipeline {
                 sh 'echo $HOME'
                 sh 'mvn clean install'
                 sh 'mvn clean compile assembly:single'
-                sh 'mvn -e exec:java -Dexec.mainClass=kpi.acts.appz.bot.hellobot.HelloWorldBot'
+                sh 'java kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
     }
