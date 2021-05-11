@@ -15,7 +15,6 @@ pipeline {
             steps {
                 sh 'echo $HOME'
                 sh 'mvn clean install'
-                sh 'mvn clean compile assembly:single'
                 sh 'java kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
