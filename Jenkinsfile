@@ -1,13 +1,13 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.8.1-adoptopenjdk-11'
+            image 'maven:3.8.1-openjdk-8'
             args '-v $HOME/.m2:/root/.m2'
         }
     }
     environment {
-        JAVA_HOME="$JAVA_HOME:/usr/lib/jvm/java11/bin/java"
-        PATH="/usr/lib/jvm/java11/bin:$PATH /opt/maven-3.8.1/bin:$PATH"
+        JAVA_HOME="$JAVA_HOME:/usr/lib/jvm/openjdk-8/bin/java"
+        PATH="/usr/lib/jvm/openjdk-8/bin:$PATH /opt/maven-3.8.1/bin:$PATH"
     }
     stages {
         stage('git') {
