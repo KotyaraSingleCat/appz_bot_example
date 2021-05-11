@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'echo $HOME'
                 sh 'mvn clean install'
-                sh 'java kpi.acts.appz.bot.hellobot.HelloWorldBot'
+                sh 'java hello_bot.src.main.java.kpi.acts.appz.bot.hellobot.HelloWorldBot'
             }
         }
     }
