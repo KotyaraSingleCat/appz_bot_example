@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'echo $HOME'
                 sh 'mvn clean install'
-                sh 'java /var/jenkins_home/workspace/JobOne/hello_bot/src/main/java/kpi/acts/appz/bot/hellobot/HelloWorldBot.java'
+                sh 'mvn -e exec:java -Dexec.mainClass="kpi.acts.appz.bot.hellobot.HelloWorldBot"'
             }
         }
     }
