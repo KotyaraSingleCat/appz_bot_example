@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 public final class HelloWorldBot extends Bot {
     public static void main(String[] args){
+        \\
             ApiContextInitializer.init();
             Bot.runBot(new HelloWorldBot("1705172028:AAFowiU_cY6xpZqX1Ole3vUrIhU5dINYSaw", "Kotyara"));
     }
